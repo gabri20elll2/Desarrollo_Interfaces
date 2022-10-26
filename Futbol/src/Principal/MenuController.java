@@ -1,4 +1,4 @@
-package application;
+package Principal;
 
 import java.io.IOException;
 
@@ -28,12 +28,12 @@ public class MenuController {
     }
     
     @FXML
-    private void abrirEquipos(ActionEvent event) {    	
+    private void abrirClasificacion(ActionEvent event) {    	
     	try {
 			// Cargamos el archivo Controles Din�micos
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MenuController.class.getResource("/Principal/Menu.fxml"));
-			BorderPane listadoControles = (BorderPane) loader.load();
+			loader.setLocation(MenuController.class.getResource("/basicoDinamico/ControlesDinamicos.fxml"));
+			GridPane listadoControles = (GridPane) loader.load();
 
 			// Se sit�a en el centro del dise�o principal
 			rootLayout.setCenter(listadoControles);
@@ -70,11 +70,5 @@ public class MenuController {
 			e.printStackTrace();
 		}
     }
-    @FXML
-    void verificar(ActionEvent event) {
-    	if(contraseña.getText().toString().equals("gabriel") && usuario.getText().toString().equals("gabriel")) {
-    		abrirEquipos(event);
-    	}
-    }
-    
+
 }
