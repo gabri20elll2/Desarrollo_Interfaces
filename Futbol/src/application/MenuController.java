@@ -2,15 +2,24 @@ package application;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 public class MenuController {
-	
-	// Pantalla principal en la que se añade o quita contenido
+	 @FXML
+	    private PasswordField contraseÃ±a;
+
+	    @FXML
+	    private TextField usuario;
+
+	// Pantalla principal en la que se aï¿½ade o quita contenido
 	private BorderPane rootLayout;
   
     @FXML
@@ -19,14 +28,14 @@ public class MenuController {
     }
     
     @FXML
-    private void abrirFormulario(ActionEvent event) {    	
+    private void abrirEquipos(ActionEvent event) {    	
     	try {
-			// Cargamos el archivo Controles Dinámicos
+			// Cargamos el archivo Controles Dinï¿½micos
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MenuController.class.getResource("/basicoDinamico/ControlesDinamicos.fxml"));
 			GridPane listadoControles = (GridPane) loader.load();
 
-			// Se sitúa en el centro del diseño principal
+			// Se sitï¿½a en el centro del diseï¿½o principal
 			rootLayout.setCenter(listadoControles);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -34,7 +43,7 @@ public class MenuController {
     }
     
     @FXML
-    private void cerrarListado(ActionEvent event) {    	
+    private void cerrarEquipos(ActionEvent event) {    	
     	// Se elimina el contenido del nodo central
     	rootLayout.setCenter(null);	
     }
@@ -46,5 +55,26 @@ public class MenuController {
 	public void setRootLayout(BorderPane rootLayout) {
 		this.rootLayout = rootLayout;
 	}	
+    
+    @FXML
+    void irInicio(ActionEvent event) {    	
+    	try {
+			// Cargamos el archivo Controles Dinï¿½micos
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MenuController.class.getResource("/application/Menu.fxml"));
+			BorderPane listadoControles = (BorderPane) loader.load();
+
+			// Se sitï¿½a en el centro del diseï¿½o principal
+			rootLayout.setCenter(listadoControles);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    @FXML
+    void verificar(ActionEvent event) {
+    	if(contraseÃ±a.getText().toString().equals("gabriel") && usuario.getText().toString().equals("gabriel")) {
+    		abrirEquipos(event);
+    	}
+    }
     
 }

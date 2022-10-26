@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -18,17 +19,16 @@
 
 <BorderPane prefHeight="650.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <top>
-      <MenuBar prefHeight="30.0" prefWidth="750.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER">
+      <MenuBar prefHeight="20.0" prefWidth="750.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Inicio">
-            <items>
-                  <MenuItem mnemonicParsing="false" onAction="#abrirFormulario" text="Open" />
-              <MenuItem mnemonicParsing="false" onAction="#cerrarListado" text="Close" />
-            </items>
-          </Menu>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#irInicio" text="Ver" />
+               </items></Menu> 
             <Menu mnemonicParsing="false" text="Equipos">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" onAction="#abrirEquipos" text="Ver" />
+                  <MenuItem mnemonicParsing="false" onAction="#cerrarEquipos" text="Cerrar" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Partidos">
@@ -47,21 +47,40 @@
          </BorderPane.margin>
       </MenuBar>
    </top>
-   <center>
-      <VBox alignment="CENTER" prefHeight="304.0" prefWidth="716.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+   <bottom>
+      <VBox prefHeight="53.0" prefWidth="750.0" spacing="10.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+            <Label text="Usuario: Gabriel">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Contraseña: 1234">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </VBox>
+   </bottom>
+   <center>
+      <VBox alignment="CENTER" prefHeight="528.0" prefWidth="716.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="228.0" fitWidth="384.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/LogoLigaEspaña.jpg" />
                </image>
-               <VBox.margin>
-                  <Insets bottom="300.0" />
-               </VBox.margin>
             </ImageView>
-            <GridPane>
+            <GridPane prefHeight="72.0" prefWidth="316.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="100.0" prefWidth="80.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.0" minWidth="100.0" prefWidth="376.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="601.0" minWidth="100.0" prefWidth="200.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -73,15 +92,29 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="600.0" GridPane.columnIndex="1" />
-                  <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="usuario" prefHeight="25.0" prefWidth="600.0" GridPane.columnIndex="1" />
+                  <PasswordField fx:id="contraseña" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Constraseña" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" left="200.0" right="200.0" />
+               </VBox.margin>
             </GridPane>
+            <Button mnemonicParsing="false" onAction="#verificar" style="-fx-background-color: #1c90d3;" text="Acceder" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="100.0" left="100.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+               </padding>
+            </Button>
          </children>
       </VBox>
    </center>
