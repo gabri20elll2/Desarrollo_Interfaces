@@ -47,7 +47,9 @@ public class ClasificacionController {
     @FXML
     private TreeView<String> tree1;
     
-     // Lista auxiliar para TableView
+    /**
+     * @category datos equipos
+     */
     private ObservableList<Clasificacion> data = FXCollections.observableArrayList(
     	    new Clasificacion("Real Madrid", 11, 10, 1, 0, 31),
     	    new Clasificacion("Barcelona", 11, 19, 1, 1, 28),
@@ -62,6 +64,9 @@ public class ClasificacionController {
     	);
 
     @FXML
+    /**
+     * @category iniciacion 
+     */
     private void initialize() {  
         // Asociamos cada columna del TableView a una propiedad de la clase Clasificacion 
     	nombreEquipoCol.setCellValueFactory(new PropertyValueFactory<Clasificacion,String>("nombreEquipo"));

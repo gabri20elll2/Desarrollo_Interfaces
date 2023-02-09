@@ -26,6 +26,10 @@ public class Clasificacion {
         this.partidosPerdidos = new SimpleIntegerProperty(pDerrotados);
         this.totalPuntos = new SimpleIntegerProperty(tPuntos);
     }
+    /**
+     * 
+     * @return getter and setter
+     */
     public String getNombreEquipo() {
         return nombreEquipo.get();
     }

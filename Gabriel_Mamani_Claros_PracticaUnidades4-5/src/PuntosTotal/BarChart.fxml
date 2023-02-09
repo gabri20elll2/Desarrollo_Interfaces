@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PuntosTotal.BarChartController">
+  <tabs>
+    <Tab text="AÑOS">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="500.0">
+               <children>
+                  <BarChart fx:id="barChart" categoryGap="4.0" title="PUNTOS DE CADA AÑO">
+                    <xAxis>
+                      <CategoryAxis animated="false" autoRanging="false" label="EQUIPOS" side="BOTTOM" fx:id="xAxisBar" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis animated="false" label="PUNTOS" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="TOTAL AÑOS">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <StackedBarChart fx:id="stackedBarChart" categoryGap="50.0" title="SUMA TOTAL AÑOS">
+                    <xAxis>
+                      <CategoryAxis label="EQUIPOS" side="BOTTOM" fx:id="xAxisStacked" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="SUMA TOTAL" side="LEFT" />
+                    </yAxis>
+                  </StackedBarChart>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

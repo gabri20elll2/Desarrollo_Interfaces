@@ -9,13 +9,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-
+/**
+ * 
+ * @author gabriel mamani
+ *
+ */
 public class MainPrincipal extends Application {
-	
+	/**
+	 * 
+	 */
 	private GridPane rootLayout1;	//InicioSesion
 	private BorderPane rootLayout2; //PantallaPrincipal
 	private Stage primaryStage;
-	 
+	 /**
+	  * 
+	  */
 	@Override
 	public void start(Stage primaryStage) { 
 		this.primaryStage = primaryStage;
@@ -23,8 +31,9 @@ public class MainPrincipal extends Application {
 		IniciarSesionPantalla();
 		
 	}
-	
-	//PAGINA INICIO SESION
+	/**
+	 * @param iniciosesionpantalla
+	 */
 	public void IniciarSesionPantalla() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -52,7 +61,9 @@ public class MainPrincipal extends Application {
 		}
 	}
 	
-	//PAGINA PRINCIAL 
+	/**
+	 * @param pantallaprincipal
+	 */
 	public void  PaginaPrincipal() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -77,18 +88,27 @@ public class MainPrincipal extends Application {
 			e.printStackTrace();
 		}
 	    }
-	
+	/**
+	 * 
+	 * @return pantallaprincipal
+	 */
 	public BorderPane getRootLayout() {
 		return rootLayout2;
 	}
-
-
+	
+	/**
+	 * 
+	 * @param rootLayout pantallaprincipal
+	 */
 	public void setRootLayout(BorderPane rootLayout) {
 		this.rootLayout2 = rootLayout;
 	}
 	
-	
-		public static void main(String[] args) {
+	/**
+	 * 
+	 * @param args main
+	 */
+	public static void main(String[] args) {
 			launch(args);
 		}
 	
