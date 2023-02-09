@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -75,6 +77,95 @@ public class MainPrincipalController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+	    }
+
+	 //Inicio
+	   @FXML
+	    void PaginaPrincipal(ActionEvent event) {
+		   /*try {
+				// Cargamos el archivo Controles Din micos
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(MainPrincipalController.class.getResource("/Clasificacion/ControlesDinamicos.fxml"));
+				GridPane listadoControles = (GridPane) loader.load();
+
+				// Se sit a en el centro del dise o principal
+				rootLayout2.setCenter(listadoControles);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}*/
+	    }
+	   
+	   //paginas 
+	    @FXML
+	    private void abrirFormulario(ActionEvent event) {    	
+	    	try {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(MainPrincipalController.class.getResource("/PaginaUno/ControlesPagUno.fxml"));
+				GridPane listadoControles = (GridPane) loader.load();
+
+				rootLayout2.setCenter(listadoControles);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	    }
+	    
+	    @FXML
+	    void ReservarPartido(ActionEvent event) {
+	    	try {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(MainPrincipalController.class.getResource("/AltaPartido/MainReserva.fxml"));
+				BorderPane abrirreserva = (BorderPane) loader.load();
+
+				rootLayout2.setCenter(abrirreserva);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+	    }
+	    @FXML
+	    void abrirTutorial(ActionEvent event) {    	
+	    	try {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(MainPrincipalController.class.getResource("/PaginaTres/MainLayouts_Controles.fxml"));
+				BorderPane controlavanzado = (BorderPane) loader.load();
+
+				rootLayout2.setCenter(controlavanzado);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	    }
+	    
+	    // Graficos
+	    
+	    @FXML
+	    void pieChart(ActionEvent event) {
+	     try {
+			 FXMLLoader loader = new FXMLLoader();
+			 loader.setLocation(MainPrincipalController.class.getResource("/pieChart/pieChart.fxml"));
+			 AnchorPane tutorial=(AnchorPane) loader.load();
+			 tutorial.getStylesheets().add("/pieChart/pie.css");
+			 rootLayout2.setCenter(tutorial);
+		
+		
+		 } catch (IOException e) {
+			 e.printStackTrace();
+		 }
+	    }
+	    
+	    // barChart
+	    @FXML
+	    void barChart(ActionEvent event) {
+	     try {
+			 FXMLLoader loader = new FXMLLoader();
+			 loader.setLocation(MainPrincipalController.class.getResource("/barChart/barChart.fxml"));
+			 TabPane tutorial=(TabPane) loader.load();
+			 tutorial.getStylesheets().add("/barChart/bar.css");
+			 rootLayout2.setCenter(tutorial);
+		
+		
+		 } catch (IOException e) {
+			 e.printStackTrace();
+		 }
 	    }
 
 

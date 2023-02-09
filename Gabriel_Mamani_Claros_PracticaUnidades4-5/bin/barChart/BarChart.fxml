@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="barChart.BarChartController">
+  <tabs>
+    <Tab text="BarChart">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="500.0">
+               <children>
+                  <BarChart fx:id="barChart" categoryGap="4.0" title="Resumen de país">
+                    <xAxis>
+                      <CategoryAxis animated="false" autoRanging="false" label="País" side="BOTTOM" fx:id="xAxisBar" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis animated="false" label="Valor" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="StackedBarChart">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <StackedBarChart fx:id="stackedBarChart" categoryGap="50.0" title="Resumen de país">
+                    <xAxis>
+                      <CategoryAxis label="País" side="BOTTOM" fx:id="xAxisStacked" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="Suma actual" side="LEFT" />
+                    </yAxis>
+                  </StackedBarChart>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
