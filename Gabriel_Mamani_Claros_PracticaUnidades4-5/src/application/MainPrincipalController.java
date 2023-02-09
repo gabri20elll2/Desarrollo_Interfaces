@@ -1,0 +1,81 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.scene.control.Alert.AlertType;
+
+public class MainPrincipalController {
+	private BorderPane rootLayout2;
+
+    @FXML
+    private Button acceder;
+
+    @FXML
+    private PasswordField contraseña;
+
+    @FXML
+    private TextField usuario;
+
+    @FXML
+    void IniciarSesion(ActionEvent event) {
+    	if(usuario.getText().equals("gabriel") && contraseña.getText().equals("gabriel")) {
+    		main.PaginaPrincipal();
+    		Stage ventana =(Stage) this.acceder.getScene().getWindow();
+			ventana.close();
+    	}else {
+    		 Alert alert = crearAlert(AlertType.ERROR, "ERROR", "Usuario o contraseña incorrectos");
+       	  alert.showAndWait();
+    	}
+    }
+    
+    //Main
+    MainPrincipal main;
+    
+    public void setMain(MainPrincipal main) {
+        this.main = main;
+        
+    }
+	public static  Alert crearAlert(AlertType type, String title, String header) {
+	    	Alert auxAlert = new Alert(type);
+	    	
+	    	auxAlert.setTitle(title);
+	    	auxAlert.setHeaderText(header);
+	    	
+	    	return auxAlert;
+	 }
+	public BorderPane getRootLayout() {
+		return rootLayout2;
+	}
+
+	public void setRootLayout(BorderPane rootLayout2) {
+		this.rootLayout2 = rootLayout2;
+		
+	}
+	//CLASIFICACION
+	   @FXML
+	    void abrirClasificacion(ActionEvent event) {
+		   try {
+				// Cargamos el archivo Controles Din micos
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(MainPrincipalController.class.getResource("/Clasificacion/ControlesDinamicos.fxml"));
+				GridPane listadoControles = (GridPane) loader.load();
+
+				// Se sit a en el centro del dise o principal
+				rootLayout2.setCenter(listadoControles);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	    }
+
+
+}
